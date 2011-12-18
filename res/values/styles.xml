@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="translucent_background">#44ffffff</drawable>
+    <style name="TranslucentActivity.TransparentBackground" parent="android:Theme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@drawable/translucent_background</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="TranslucentActivity.BaseLayout" parent="android:Theme">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="WidgetProvider.BaseLayout" parent="android:Theme">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="WidgetProvider.MailImage" parent="android:Theme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:width">40dip</item>
+        <item name="android:height">40dip</item>
+        <item name="android:src">@drawable/k9</item>
+    </style>
+    <style name="WidgetProvider.CountText" parent="android:Theme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:width">32dip</item>
+        <item name="android:height">32dip</item>
+    </style>
+    <!-- ColorEditActivity -->
+    <style name="MainActivity" parent="android:Theme">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="MainActivity.BaseLayout" parent="android:Theme">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="MainActivity.HeaderTitle" parent="android:Theme">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="MainActivity.BgSettingLayout" parent="android:Theme">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="MainActivity.SeekBarRowLayout" parent="android:Theme">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="MainActivity.SeekBarText" parent="android:Theme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">50.0dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <style name="MainActivity.SeekBar" parent="android:Theme">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">30.0dip</item>
+    </style>
+</resources>

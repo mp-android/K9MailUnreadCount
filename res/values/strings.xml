@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">K-9 Mail UnreadCount</string>
+    <string name="widget_name">K9UC (1x1)</string>
+    <string name="bg_seekbar_title">Background Color</string>
+    <string name="zero_text_seekbar_title">Text Color for Mail-Nums 0</string>
+    <string name="not_zero_text_seekbar_title">Text Color for Mail-Nums not 0</string>
+    <string name="alpha">A</string>
+    <string name="red">R</string>
+    <string name="green">G</string>
+    <string name="blue">B</string>
+    <string name="ok_button">OK</string>
+    <string name="default_button">Default</string>
+    <string name="text_bg_type_transparency">Transparency</string>
+    <string name="text_bg_type_translucent">Translucent</string>
+    <string name="text_bg_type_opacity">Opacity</string>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="net.madroom.k9uc"
+      android:versionCode="3"
+      android:versionName="1.0.2">
+
+    <uses-sdk android:minSdkVersion="7" />
+    <uses-permission android:name="com.fsck.k9.permission.READ_MESSAGES" />
+
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+
+        <activity android:name="net.madroom.k9uc.MainActivity" android:theme="@style/MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="net.madroom.k9uc.TranslucentActivity"
+            android:label="@string/app_name"
+            android:theme="@style/TranslucentActivity.TransparentBackground" />
+
+        <receiver android:name="net.madroom.k9uc.WidgetProvider" android:label="@string/widget_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info"/>
+        </receiver>
+
+        <receiver android:name="net.madroom.k9uc.K9Receiver">
+            <intent-filter>
+                <action android:name="com.fsck.k9.intent.action.EMAIL_RECEIVED"/>
+                <data android:scheme="email" android:host="messages" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="net.madroom.k9uc.WidgetProvider$MyService">
+            <intent-filter>
+                <action android:name="net.madroom.k9uc.action.CLICK" />
+            </intent-filter>
+        </service>
+
+    </application>
+</manifest>
