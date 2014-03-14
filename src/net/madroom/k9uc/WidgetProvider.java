@@ -38,16 +38,17 @@ public class WidgetProvider extends AppWidgetProvider {
     public void onDeleted(Context context, int[] appWidgetIds) {
         super.onDeleted(context, appWidgetIds);
     }
-    
+
     @Override
     public void onDisabled(Context context) {
         super.onDisabled(context);
     }
-    
+
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
     }
+
     /***************************************************************************
      * MyService
      ***************************************************************************/
@@ -80,25 +81,25 @@ public class WidgetProvider extends AppWidgetProvider {
          */
         public void initializeRemoteViews() {
             switch(Build.VERSION.SDK_INT) {
-            case Build.VERSION_CODES.ECLAIR_MR1:
-                switch (mPref.getInt(MainActivity.KEY_BG_TYPE, MainActivity.DEF_BG_TYPE)) {
-                case R.id.bg_type_transparency:
-                    mRemoteViews = new RemoteViews(mContext.getPackageName(), R.layout.widget_layout_transparency);
-                    break;
-                case R.id.bg_type_translucent:
-                    mRemoteViews = new RemoteViews(mContext.getPackageName(), R.layout.widget_layout_translucent);
-                    break;
-                case R.id.bg_type_opacity:
-                    mRemoteViews = new RemoteViews(mContext.getPackageName(), R.layout.widget_layout_opacity);
+                case Build.VERSION_CODES.ECLAIR_MR1:
+                    switch (mPref.getInt(MainActivity.KEY_BG_TYPE, MainActivity.DEF_BG_TYPE)) {
+                        case R.id.bg_type_transparency:
+                            mRemoteViews = new RemoteViews(mContext.getPackageName(), R.layout.widget_layout_transparency);
+                            break;
+                        case R.id.bg_type_translucent:
+                            mRemoteViews = new RemoteViews(mContext.getPackageName(), R.layout.widget_layout_translucent);
+                            break;
+                        case R.id.bg_type_opacity:
+                            mRemoteViews = new RemoteViews(mContext.getPackageName(), R.layout.widget_layout_opacity);
+                            break;
+                        default:
+                            mRemoteViews = new RemoteViews(mContext.getPackageName(), R.layout.widget_layout_translucent);
+                            break;
+                    }
                     break;
                 default:
                     mRemoteViews = new RemoteViews(mContext.getPackageName(), R.layout.widget_layout_translucent);
                     break;
-                }
-                break;
-            default:
-                mRemoteViews = new RemoteViews(mContext.getPackageName(), R.layout.widget_layout_translucent);
-                break;
             }
         }
 
@@ -108,7 +109,7 @@ public class WidgetProvider extends AppWidgetProvider {
         @Override
         public void onStart(Intent intent, int startId) {
             final int widgetCount =
-                AppWidgetManager.getInstance(mContext).getAppWidgetIds(new ComponentName(mContext, WidgetProvider.class)).length;
+                    AppWidgetManager.getInstance(mContext).getAppWidgetIds(new ComponentName(mContext, WidgetProvider.class)).length;
             if(widgetCount==0) return;
 
             if(intent!=null && intent.getAction()!=null) {
@@ -128,6 +129,7 @@ public class WidgetProvider extends AppWidgetProvider {
             } catch (Exception e) {
                 stopSelf();
             }
+
             stopSelf();
         }
 
@@ -138,6 +140,7 @@ public class WidgetProvider extends AppWidgetProvider {
             int total = getTotalUnreadCount();
             mRemoteViews.setOnClickPendingIntent(R.id.base_layout, getPendingIntent());
             mRemoteViews.setTextViewText(R.id.count_text, ""+total);
+
             if(total==0) {
                 int color = Color.argb(
                         mPref.getInt(MainActivity.KEY_TEXT_ZERO_COLOR_A, MainActivity.DEF_TEXT_ZERO_COLOR_A),
@@ -153,17 +156,18 @@ public class WidgetProvider extends AppWidgetProvider {
                         mPref.getInt(MainActivity.KEY_TEXT_NOT_ZERO_COLOR_B, MainActivity.DEF_TEXT_NOT_ZERO_COLOR_B));
                 mRemoteViews.setTextColor(R.id.count_text, color);
             }
+
             switch(Build.VERSION.SDK_INT) {
-            case Build.VERSION_CODES.ECLAIR_MR1:
-                break;
-            default:
-                int color = Color.argb(
-                        mPref.getInt(MainActivity.KEY_BG_COLOR_A, MainActivity.DEF_BG_COLOR_A),
-                        mPref.getInt(MainActivity.KEY_BG_COLOR_R, MainActivity.DEF_BG_COLOR_R),
-                        mPref.getInt(MainActivity.KEY_BG_COLOR_G, MainActivity.DEF_BG_COLOR_G),
-                        mPref.getInt(MainActivity.KEY_BG_COLOR_B, MainActivity.DEF_BG_COLOR_B));
-                mRemoteViews.setInt(R.id.base_layout, "setBackgroundColor", color);
-                break;
+                case Build.VERSION_CODES.ECLAIR_MR1:
+                    break;
+                default:
+                    int color = Color.argb(
+                            mPref.getInt(MainActivity.KEY_BG_COLOR_A, MainActivity.DEF_BG_COLOR_A),
+                            mPref.getInt(MainActivity.KEY_BG_COLOR_R, MainActivity.DEF_BG_COLOR_R),
+                            mPref.getInt(MainActivity.KEY_BG_COLOR_G, MainActivity.DEF_BG_COLOR_G),
+                            mPref.getInt(MainActivity.KEY_BG_COLOR_B, MainActivity.DEF_BG_COLOR_B));
+                    mRemoteViews.setInt(R.id.base_layout, "setBackgroundColor", color);
+                    break;
             }
         }
 
@@ -171,10 +175,10 @@ public class WidgetProvider extends AppWidgetProvider {
          * getTotalUnreadCount
          */
         public static final Uri K9_ACCOUNTS_URI =
-            Uri.parse("content://com.fsck.k9.messageprovider/accounts/");
+                Uri.parse("content://com.fsck.k9.messageprovider/accounts/");
 
-        public static final Uri K9_ACCOUNT_UNREAD_URI = 
-            Uri.parse("content://com.fsck.k9.messageprovider/account_unread/");
+        public static final Uri K9_ACCOUNT_UNREAD_URI =
+                Uri.parse("content://com.fsck.k9.messageprovider/account_unread/");
 
         public static final String ACCOUNT_NUMBER = "accountNumber";
         public static final String UNREAD = "unread";
@@ -185,22 +189,25 @@ public class WidgetProvider extends AppWidgetProvider {
             final List<Integer> accountNumbers = new ArrayList<Integer>();
 
             final Cursor accountCursor = getCursor(mContext, K9_ACCOUNTS_URI);
+
             if(accountCursor.moveToFirst()) {
                 do {
                     final int accountNumber =
-                        accountCursor.getInt(accountCursor.getColumnIndex(ACCOUNT_NUMBER));
+                            accountCursor.getInt(accountCursor.getColumnIndex(ACCOUNT_NUMBER));
                     accountNumbers.add(accountNumber);
                 } while(accountCursor.moveToNext());
             }
+
             accountCursor.close();
 
             for(int accountNumber : accountNumbers) {
                 final Cursor unreadCursor =
-                    getCursor(mContext, ContentUris.withAppendedId(K9_ACCOUNT_UNREAD_URI,accountNumber));
+                        getCursor(mContext, ContentUris.withAppendedId(K9_ACCOUNT_UNREAD_URI,accountNumber));
                 unreadCursor.moveToFirst();
                 total += unreadCursor.getInt(unreadCursor.getColumnIndex(UNREAD));
                 unreadCursor.close();
             }
+
             return total;
         }
 

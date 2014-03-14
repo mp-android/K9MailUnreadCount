@@ -90,6 +90,7 @@ public class MainActivity extends Activity {
     private SeekBar mTextZeroSeekbarR;
     private SeekBar mTextZeroSeekbarG;
     private SeekBar mTextZeroSeekbarB;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,86 +103,87 @@ public class MainActivity extends Activity {
          */
         LinearLayout layout;
         switch(Build.VERSION.SDK_INT) {
-        case Build.VERSION_CODES.ECLAIR_MR1:
-            // for 2.1
-            layout = (LinearLayout)findViewById(R.id.bg_setting_layout_2);
-            layout.setVisibility(View.GONE);
+            case Build.VERSION_CODES.ECLAIR_MR1:
+                // for 2.1
+                layout = (LinearLayout)findViewById(R.id.bg_setting_layout_2);
+                layout.setVisibility(View.GONE);
 
-            mBgTypeRadiogroup = (RadioGroup)findViewById(R.id.bg_type);
-            mBgTypeRadiogroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-                public void onCheckedChanged(RadioGroup group, int checkedId) { 
-                    changeBG();
-                }
-            });
+                mBgTypeRadiogroup = (RadioGroup)findViewById(R.id.bg_type);
+                mBgTypeRadiogroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        changeBG();
+                    }
+                });
 
-            break;
-        default:
-            // for 2.2+
-            layout = (LinearLayout)findViewById(R.id.bg_setting_layout_1);
-            layout.setVisibility(View.GONE);
+                break;
+            default:
+                // for 2.2+
+                layout = (LinearLayout)findViewById(R.id.bg_setting_layout_1);
+                layout.setVisibility(View.GONE);
 
-            mBgSeekbarTitleA = (TextView)findViewById(R.id.bg_seekbar_title_a);
-            mBgSeekbarTitleR = (TextView)findViewById(R.id.bg_seekbar_title_r);
-            mBgSeekbarTitleG = (TextView)findViewById(R.id.bg_seekbar_title_g);
-            mBgSeekbarTitleB = (TextView)findViewById(R.id.bg_seekbar_title_b);
-            mBgSeekbarA = (SeekBar)findViewById(R.id.bg_seekbar_a);
-            mBgSeekbarR = (SeekBar)findViewById(R.id.bg_seekbar_r);
-            mBgSeekbarG = (SeekBar)findViewById(R.id.bg_seekbar_g);
-            mBgSeekbarB = (SeekBar)findViewById(R.id.bg_seekbar_b);
-            mBgSeekbarA.setMax(COLOR_MAX);
-            mBgSeekbarR.setMax(COLOR_MAX);
-            mBgSeekbarG.setMax(COLOR_MAX);
-            mBgSeekbarB.setMax(COLOR_MAX);
-            mBgSeekbarA.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
-                }
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
-                    changeBG();
-                }
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-                }
-            });
-            mBgSeekbarR.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
-                }
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
-                    changeBG();
-                }
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-                }
-            });
-            mBgSeekbarG.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
-                }
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
-                    changeBG();
-                }
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-                }
-            });
-            mBgSeekbarB.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
-                }
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
-                    changeBG();
-                }
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-                }
-            });
-            break;
+                mBgSeekbarTitleA = (TextView)findViewById(R.id.bg_seekbar_title_a);
+                mBgSeekbarTitleR = (TextView)findViewById(R.id.bg_seekbar_title_r);
+                mBgSeekbarTitleG = (TextView)findViewById(R.id.bg_seekbar_title_g);
+                mBgSeekbarTitleB = (TextView)findViewById(R.id.bg_seekbar_title_b);
+                mBgSeekbarA = (SeekBar)findViewById(R.id.bg_seekbar_a);
+                mBgSeekbarR = (SeekBar)findViewById(R.id.bg_seekbar_r);
+                mBgSeekbarG = (SeekBar)findViewById(R.id.bg_seekbar_g);
+                mBgSeekbarB = (SeekBar)findViewById(R.id.bg_seekbar_b);
+                mBgSeekbarA.setMax(COLOR_MAX);
+                mBgSeekbarR.setMax(COLOR_MAX);
+                mBgSeekbarG.setMax(COLOR_MAX);
+                mBgSeekbarB.setMax(COLOR_MAX);
+                mBgSeekbarA.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+                    }
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
+                        changeBG();
+                    }
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+                    }
+                });
+                mBgSeekbarR.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+                    }
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
+                        changeBG();
+                    }
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+                    }
+                });
+                mBgSeekbarG.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+                    }
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
+                        changeBG();
+                    }
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+                    }
+                });
+                mBgSeekbarB.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+                    }
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
+                        changeBG();
+                    }
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+                    }
+                });
+                break;
         }
+
         /**
          * not zero text
          */
@@ -212,6 +214,7 @@ public class MainActivity extends Activity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
         mTextNotZeroSeekbarR.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -224,6 +227,7 @@ public class MainActivity extends Activity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
         mTextNotZeroSeekbarG.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -236,6 +240,7 @@ public class MainActivity extends Activity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
         mTextNotZeroSeekbarB.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -279,6 +284,7 @@ public class MainActivity extends Activity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
         mTextZeroSeekbarR.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -291,6 +297,7 @@ public class MainActivity extends Activity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
         mTextZeroSeekbarG.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -303,6 +310,7 @@ public class MainActivity extends Activity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
         mTextZeroSeekbarB.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -330,15 +338,15 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 SharedPreferences.Editor editor = mPref.edit();
                 switch(Build.VERSION.SDK_INT) {
-                case Build.VERSION_CODES.ECLAIR_MR1:
-                    editor.putInt(KEY_BG_TYPE, mBgTypeRadiogroup.getCheckedRadioButtonId());
-                    break;
-                default:
-                    editor.putInt(KEY_BG_COLOR_A, mBgSeekbarA.getProgress());
-                    editor.putInt(KEY_BG_COLOR_R, mBgSeekbarR.getProgress());
-                    editor.putInt(KEY_BG_COLOR_G, mBgSeekbarG.getProgress());
-                    editor.putInt(KEY_BG_COLOR_B, mBgSeekbarB.getProgress());
-                    break;
+                    case Build.VERSION_CODES.ECLAIR_MR1:
+                        editor.putInt(KEY_BG_TYPE, mBgTypeRadiogroup.getCheckedRadioButtonId());
+                        break;
+                    default:
+                        editor.putInt(KEY_BG_COLOR_A, mBgSeekbarA.getProgress());
+                        editor.putInt(KEY_BG_COLOR_R, mBgSeekbarR.getProgress());
+                        editor.putInt(KEY_BG_COLOR_G, mBgSeekbarG.getProgress());
+                        editor.putInt(KEY_BG_COLOR_B, mBgSeekbarB.getProgress());
+                        break;
                 }
                 editor.putInt(KEY_TEXT_NOT_ZERO_COLOR_A, mTextNotZeroSeekbarA.getProgress());
                 editor.putInt(KEY_TEXT_NOT_ZERO_COLOR_R, mTextNotZeroSeekbarR.getProgress());
@@ -353,28 +361,31 @@ public class MainActivity extends Activity {
                 finish();
             }
         });
+
         setCurrent();
         changeBG();
         changeTextNotZero();
         changeTextZero();
     }
+
     /***************************************************************************
      * setCurrent / setDefault
      ***************************************************************************/
     private void setCurrent() {
         switch(Build.VERSION.SDK_INT) {
-        case Build.VERSION_CODES.ECLAIR_MR1:
-            RadioButton currentRadio = (RadioButton)findViewById(mPref.getInt(KEY_BG_TYPE, DEF_BG_TYPE));
-            currentRadio.setChecked(true);
-            break;
+            case Build.VERSION_CODES.ECLAIR_MR1:
+                RadioButton currentRadio = (RadioButton)findViewById(mPref.getInt(KEY_BG_TYPE, DEF_BG_TYPE));
+                currentRadio.setChecked(true);
+                break;
 
-        default:
-            mBgSeekbarA.setProgress(mPref.getInt(KEY_BG_COLOR_A, DEF_BG_COLOR_A));
-            mBgSeekbarR.setProgress(mPref.getInt(KEY_BG_COLOR_R, DEF_BG_COLOR_R));
-            mBgSeekbarG.setProgress(mPref.getInt(KEY_BG_COLOR_G, DEF_BG_COLOR_G));
-            mBgSeekbarB.setProgress(mPref.getInt(KEY_BG_COLOR_B, DEF_BG_COLOR_B));
-            break;
+            default:
+                mBgSeekbarA.setProgress(mPref.getInt(KEY_BG_COLOR_A, DEF_BG_COLOR_A));
+                mBgSeekbarR.setProgress(mPref.getInt(KEY_BG_COLOR_R, DEF_BG_COLOR_R));
+                mBgSeekbarG.setProgress(mPref.getInt(KEY_BG_COLOR_G, DEF_BG_COLOR_G));
+                mBgSeekbarB.setProgress(mPref.getInt(KEY_BG_COLOR_B, DEF_BG_COLOR_B));
+                break;
         }
+
         mTextNotZeroSeekbarA.setProgress(mPref.getInt(KEY_TEXT_NOT_ZERO_COLOR_A, DEF_TEXT_NOT_ZERO_COLOR_A));
         mTextNotZeroSeekbarR.setProgress(mPref.getInt(KEY_TEXT_NOT_ZERO_COLOR_R, DEF_TEXT_NOT_ZERO_COLOR_R));
         mTextNotZeroSeekbarG.setProgress(mPref.getInt(KEY_TEXT_NOT_ZERO_COLOR_G, DEF_TEXT_NOT_ZERO_COLOR_G));
@@ -384,19 +395,21 @@ public class MainActivity extends Activity {
         mTextZeroSeekbarG.setProgress(mPref.getInt(KEY_TEXT_ZERO_COLOR_G, DEF_TEXT_ZERO_COLOR_G));
         mTextZeroSeekbarB.setProgress(mPref.getInt(KEY_TEXT_ZERO_COLOR_B, DEF_TEXT_ZERO_COLOR_B));
     }
+
     private void setDefault() {
         switch(Build.VERSION.SDK_INT) {
-        case Build.VERSION_CODES.ECLAIR_MR1:
-            RadioButton currentRadio = (RadioButton)findViewById(DEF_BG_TYPE);
-            currentRadio.setChecked(true);
-            break;
-        default:
-            mBgSeekbarA.setProgress(DEF_BG_COLOR_A);
-            mBgSeekbarR.setProgress(DEF_BG_COLOR_R);
-            mBgSeekbarG.setProgress(DEF_BG_COLOR_G);
-            mBgSeekbarB.setProgress(DEF_BG_COLOR_B);
-            break;
+            case Build.VERSION_CODES.ECLAIR_MR1:
+                RadioButton currentRadio = (RadioButton)findViewById(DEF_BG_TYPE);
+                currentRadio.setChecked(true);
+                break;
+            default:
+                mBgSeekbarA.setProgress(DEF_BG_COLOR_A);
+                mBgSeekbarR.setProgress(DEF_BG_COLOR_R);
+                mBgSeekbarG.setProgress(DEF_BG_COLOR_G);
+                mBgSeekbarB.setProgress(DEF_BG_COLOR_B);
+                break;
         }
+
         mTextNotZeroSeekbarA.setProgress(DEF_TEXT_NOT_ZERO_COLOR_A);
         mTextNotZeroSeekbarR.setProgress(DEF_TEXT_NOT_ZERO_COLOR_R);
         mTextNotZeroSeekbarG.setProgress(DEF_TEXT_NOT_ZERO_COLOR_G);
@@ -406,21 +419,24 @@ public class MainActivity extends Activity {
         mTextZeroSeekbarG.setProgress(DEF_TEXT_ZERO_COLOR_G);
         mTextZeroSeekbarB.setProgress(DEF_TEXT_ZERO_COLOR_B);
     }
+
     /***************************************************************************
      * bg
      ***************************************************************************/
     private int getColor() {
         switch (mBgTypeRadiogroup.getCheckedRadioButtonId()) {
-        case R.id.bg_type_transparency: return getResources().getColor(R.color.transparency);
-        case R.id.bg_type_translucent: return getResources().getColor(R.color.translucent);
-        case R.id.bg_type_opacity: return getResources().getColor(R.color.opacity);
-        default: return -1;
+            case R.id.bg_type_transparency: return getResources().getColor(R.color.transparency);
+            case R.id.bg_type_translucent: return getResources().getColor(R.color.translucent);
+            case R.id.bg_type_opacity: return getResources().getColor(R.color.opacity);
+            default: return -1;
         }
     }
+
     private void changeBGType() {
         PaintDrawable d = new PaintDrawable(getColor());
         getWindow().setBackgroundDrawable(d);
     }
+
     private void changeBGColor() {
         int color = Color.argb(
                 mBgSeekbarA.getProgress(),
@@ -440,16 +456,18 @@ public class MainActivity extends Activity {
         mBgSeekbarTitleB.setText(getString(R.string.blue) + ":" +
                 CommonUtil.zeroPadding(STR_NUM, ""+mBgSeekbarB.getProgress()));
     }
+
     private void changeBG() {
         switch(Build.VERSION.SDK_INT) {
-        case Build.VERSION_CODES.ECLAIR_MR1:
-            changeBGType();
-            break;
-        default:
-            changeBGColor();
-            break;
+            case Build.VERSION_CODES.ECLAIR_MR1:
+                changeBGType();
+                break;
+            default:
+                changeBGColor();
+                break;
         }
     }
+
     /***************************************************************************
      * text - not zero
      ***************************************************************************/
@@ -475,6 +493,7 @@ public class MainActivity extends Activity {
         mTextNotZeroSeekbarTitleB.setText(getString(R.string.blue) + ":" +
                 CommonUtil.zeroPadding(STR_NUM, ""+mTextNotZeroSeekbarB.getProgress()));
     }
+
     /***************************************************************************
      * text - zero
      ***************************************************************************/
