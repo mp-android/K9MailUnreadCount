@@ -8,6 +8,6 @@ public class K9Receiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         context.startService(new Intent(context, WidgetProvider.MyService.class));
-        context.startService(new Intent(context, Widget1x2Provider.MyService.class));
+        context.startService(new Intent(context, Widget2x1Provider.MyService.class));
     }
 }

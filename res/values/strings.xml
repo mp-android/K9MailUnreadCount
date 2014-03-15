@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">K-9 Mail UnreadCount</string>
     <string name="widget_name">K9UC (1x1)</string>
-    <string name="widget1x2_name">K9UC (1x2)</string>
+    <string name="widget2x1_name">K9UC (2x1)</string>
     <string name="bg_seekbar_title">Background Color</string>
     <string name="zero_text_seekbar_title">Text Color for Mail-Nums 0</string>
     <string name="not_zero_text_seekbar_title">Text Color for Mail-Nums not 0</string>

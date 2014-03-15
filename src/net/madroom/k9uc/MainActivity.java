@@ -357,7 +357,7 @@ public class MainActivity extends Activity {
                 editor.putInt(KEY_TEXT_ZERO_COLOR_B, mTextZeroSeekbarB.getProgress());
                 editor.commit();
                 startService(new Intent(mContext, WidgetProvider.MyService.class));
-                startService(new Intent(mContext, Widget1x2Provider.MyService.class));
+                startService(new Intent(mContext, Widget2x1Provider.MyService.class));
                 finish();
             }
         });

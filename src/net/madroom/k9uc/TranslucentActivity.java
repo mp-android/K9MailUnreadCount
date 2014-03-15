@@ -33,7 +33,7 @@ public class TranslucentActivity extends Activity {
     public void onDestroy(){
         super.onDestroy();
         startService(new Intent(this, WidgetProvider.MyService.class));
-        startService(new Intent(this, Widget1x2Provider.MyService.class));
+        startService(new Intent(this, Widget2x1Provider.MyService.class));
     }
 
     @Override

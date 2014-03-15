@@ -20,37 +20,6 @@ import java.util.List;
 
 public abstract class AbstractWidgetProvider extends AppWidgetProvider
 {
-    @Override
-    public void onEnabled(Context context)
-    {
-        super.onEnabled(context);
-    }
-
-    @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
-    {
-        context.startService(new Intent(context, MyService.class));
-        super.onUpdate(context, appWidgetManager, appWidgetIds);
-    }
-
-    @Override
-    public void onDeleted(Context context, int[] appWidgetIds)
-    {
-        super.onDeleted(context, appWidgetIds);
-    }
-
-    @Override
-    public void onDisabled(Context context)
-    {
-        super.onDisabled(context);
-    }
-
-    @Override
-    public void onReceive(Context context, Intent intent)
-    {
-        super.onReceive(context, intent);
-    }
-
     public static abstract class MyService extends Service
     {
         protected abstract void initialize();
@@ -103,10 +72,10 @@ public abstract class AbstractWidgetProvider extends AppWidgetProvider
         }
 
         @Override
-        public void onStart(Intent intent, int startId)
+        public int onStartCommand(Intent intent, int flags, int startId)
         {
             if (getWidgetCount() == 0) {
-                return;
+                return super.onStartCommand(intent, flags, startId);
             }
 
             if (intent != null && intent.getAction() != null) {
@@ -115,7 +84,8 @@ public abstract class AbstractWidgetProvider extends AppWidgetProvider
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(i);
                     stopSelf();
-                    return;
+
+                    return super.onStartCommand(intent, flags, startId);
                 }
             }
 
@@ -129,6 +99,8 @@ public abstract class AbstractWidgetProvider extends AppWidgetProvider
             }
 
             stopSelf();
+
+            return super.onStartCommand(intent, flags, startId);
         }
 
         protected static final Uri K9_ACCOUNTS_URI =

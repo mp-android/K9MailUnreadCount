@@ -67,11 +67,11 @@
         <item name="android:layout_marginRight">30.0dip</item>
     </style>
 
-    <style name="Widget1x2Provider.UnreadCountText" parent="android:Theme">
+    <style name="Widget2x1Provider.UnreadCountText" parent="android:Theme">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    <style name="Widget1x2Provider.CountText" parent="android:Theme">
+    <style name="Widget2x1Provider.CountText" parent="android:Theme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
