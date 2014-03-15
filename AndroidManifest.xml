@@ -27,6 +27,13 @@
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info"/>
         </receiver>
 
+        <receiver android:name="net.madroom.k9uc.Widget1x2Provider" android:label="@string/widget1x2_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget1x2_info"/>
+        </receiver>
+
         <receiver android:name="net.madroom.k9uc.K9Receiver">
             <intent-filter>
                 <action android:name="com.fsck.k9.intent.action.EMAIL_RECEIVED"/>
@@ -37,6 +44,12 @@
         <service android:name="net.madroom.k9uc.WidgetProvider$MyService">
             <intent-filter>
                 <action android:name="net.madroom.k9uc.action.CLICK" />
+            </intent-filter>
+        </service>
+
+        <service android:name="net.madroom.k9uc.Widget1x2Provider$MyService">
+            <intent-filter>
+                <action android:name="net.madroom.k9uc.action.CLICK1x2" />
             </intent-filter>
         </service>
 

@@ -1,7 +1,6 @@
 package net.madroom.k9uc;
 
 import net.madroom.common.CommonUtil;
-import net.madroom.k9uc.WidgetProvider.MyService;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -357,7 +356,8 @@ public class MainActivity extends Activity {
                 editor.putInt(KEY_TEXT_ZERO_COLOR_G, mTextZeroSeekbarG.getProgress());
                 editor.putInt(KEY_TEXT_ZERO_COLOR_B, mTextZeroSeekbarB.getProgress());
                 editor.commit();
-                startService(new Intent(mContext, MyService.class));
+                startService(new Intent(mContext, WidgetProvider.MyService.class));
+                startService(new Intent(mContext, Widget1x2Provider.MyService.class));
                 finish();
             }
         });

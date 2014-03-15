@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_layout"
+    android:background="@color/translucent"
+    style="@style/WidgetProvider.BaseLayout"
+    >
+    <TextView
+        android:id="@+id/unread_count"
+        style="@style/Widget1x2Provider.UnreadCountText"
+        />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <TextView
+            android:id="@+id/count_text1"
+            style="@style/Widget1x2Provider.CountText"
+            />
+        <TextView
+            android:id="@+id/count_text2"
+            style="@style/Widget1x2Provider.CountText"
+            />
+        <TextView
+            android:id="@+id/count_text3"
+            style="@style/Widget1x2Provider.CountText"
+            />
+        <TextView
+            android:id="@+id/count_text4"
+            style="@style/Widget1x2Provider.CountText"
+            />
+    </LinearLayout>
+</LinearLayout>
